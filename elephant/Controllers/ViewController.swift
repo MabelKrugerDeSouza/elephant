@@ -17,14 +17,18 @@ class ViewController: UIViewController {
     lazy var uitv_tabela : UITableView = {
         
         var tabela = UITableView()
-        tabela.frame = self.view.bounds
+        tabela.frame      = self.view.bounds
         tabela.dataSource = self // pega algo da propria classe, por isso a utilizacao do self
-        tabela.delegate = self
-        tabela.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        return tabela
+        tabela.delegate   = self
         
+        let nib =  UINib(nibName: "CelulaElefanteTableViewCell", bundle: nil)
+        tabela.register(nib, forCellReuseIdentifier: reuseIdentifier )
+        
+        return tabela
     }() // ta criando a tabela vazia
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
